@@ -9,7 +9,11 @@ request(url, function(error, response, body) {
   // console.log('body:', body); // In this case, what is returned as the body of the request is a string (not HTML)
 
   const data = JSON.parse(body);
-  console.log(data); // Prints the data converted to object format (deserialized from JSON string into using JSON.parse)
+  if (data[0] === undefined) {
+    console.log("Sorry, we couldn't find the breed you entered!");
+  } else {
+    console.log(data); // Prints the data converted to object format (deserialized from JSON string into using JSON.parse)
+  }
   // console.log(typeof data); // Prints "object"
   // console.log(data[0].weight); // Prints first entry in returned object
 });
